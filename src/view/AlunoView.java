@@ -3,18 +3,20 @@ package view;
 import control.AlunoController;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class AlunoView {
     private File arquivo = new File("C:/Users/autologon/Desktop/Nova Pasta/prova/alunos.csv");
     private AlunoController alunoCTRL = new AlunoController();
 
-    public void op() throws FileNotFoundException{
+    public void op() throws IOException{
         // Leitura dos dados do arquivo CSV
         alunoCTRL.leitura(arquivo);
 
         // Processamento dos dados lidos
         alunoCTRL.processar();
+
+        alunoCTRL.gravar(arquivo);
     }
 
     public void show() {

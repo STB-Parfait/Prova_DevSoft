@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AlunoController {
 
@@ -121,6 +124,16 @@ public class AlunoController {
 
     public void setAlunos(int alunos) {
         this.alunos = alunos;
+    }
+
+    public void gravar(File arquivo) throws IOException{
+        BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo));
+        writer.write("N° de alunos = " + alunos);
+        writer.write("Aprovados = " + aprovados);
+        writer.write("Reprovados = " + reprovados);
+        writer.write("Maior nota = " + maior);
+        writer.write("Menor nota = " + menor);
+        writer.write("Média Geral = " + media);
     }
 
     
